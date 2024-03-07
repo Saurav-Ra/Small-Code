@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pie | Chart</title>
+  </head>
+  <style>
+    .piechart {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-image: conic-gradient(green var(--percent), lightgreen 0);
+    }
+  </style>
+  <body>
+    <input type="range" id="handleValue" value="10" />
+    <div class="piechart" style="--percent: 10%"></div>
+
+    <script>
+      const handle = document.getElementById('handleValue');
+      const chart = document.querySelector('.piechart');
+
+      handle.addEventListener('input', (event) => {
+        let percent = event.target.value + '%';
+        chart.style.setProperty('--percent', percent);
+      });
+    </script>
+  </body>
+</html>
